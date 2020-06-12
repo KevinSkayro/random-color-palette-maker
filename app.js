@@ -16,6 +16,7 @@ colorDivs.forEach((slider, index) => {
     updateTextUI(index);
   });
 });
+
 //Functions
 
 function generateHex() {
@@ -43,6 +44,8 @@ function randomColors() {
 
     colorizeSliders(color, hue, brightness, saturation);
   });
+  //update slider inputs
+  resetInputs();
 }
 
 function checkTextContrast(color, text) {
@@ -69,6 +72,7 @@ function colorizeSliders(color, hue, brightness, saturation) {
   brightness.style.backgroundImage = `linear-gradient(to right,${scaleBright(0)}, ${scaleBright(0.5)}, ${scaleBright(1)})`;
   hue.style.backgroundImage = `linear-gradient(to right, rgb(204,75,75), rgb(204,204,75), rgb(75,204,75), rgb(75,204,204), rgb(75,75,204), rgb(204,75,204), rgb(204,75,75))`;
 }
+
 function hslControls(e) {
   const index = e.target.getAttribute("data-hue") || e.target.getAttribute("data-bright") || e.target.getAttribute("data-sat");
 
@@ -82,6 +86,7 @@ function hslControls(e) {
 
   colorDivs[index].style.backgroundColor = color;
 }
+
 function updateTextUI(index) {
   const activeDiv = colorDivs[index];
   const color = chroma(activeDiv.style.backgroundColor);
@@ -95,4 +100,24 @@ function updateTextUI(index) {
   }
 }
 
+function resetInputs() {
+  const sliders = document.querySelectorAll(".sliders input");
+  sliders.forEach((slider) => {
+    if (slider.name === "hue") {
+      const hueColor = initialColors[slider.getAttribute("data-hue")];
+      const hueValue = chroma(hueColor).hsl()[0];
+      slider.value = Math.floor(hueValue);
+    }
+    if (slider.name === "brightness") {
+      const brightColor = initialColors[slider.getAttribute("data-bright")];
+      const brightValue = chroma(brightColor).hsl()[2];
+      slider.value = Math.floor(brightValue * 100) / 100;
+    }
+    if (slider.name === "saturation") {
+      const satColor = initialColors[slider.getAttribute("data-sat")];
+      const satValue = chroma(satColor).hsl()[1];
+      slider.value = Math.floor(satValue * 100) / 100;
+    }
+  });
+}
 randomColors();
