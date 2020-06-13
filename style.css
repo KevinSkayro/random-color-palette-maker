@@ -93,6 +93,7 @@ input[type="range"] {
   margin: 1rem;
   padding: 1rem 2rem;
   background-color: rgb(31, 32, 61);
+  color: #fff;
   border: none;
   color: none;
   cursor: pointer;
