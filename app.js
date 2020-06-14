@@ -11,34 +11,50 @@ const closeAdjusments = document.querySelectorAll(".close-adjustment");
 const sliderContainers = document.querySelectorAll(".sliders");
 let initialColors;
 
+//Local storage
+
+let savedPalettes = [];
+
 //Event Listeners
+
 generateBtn.addEventListener("click", randomColors);
 sliders.forEach((slider) => {
   slider.addEventListener("input", hslControls);
 });
+
 colorDivs.forEach((slider, index) => {
   slider.addEventListener("change", () => {
     updateTextUI(index);
   });
 });
+
 currentHexes.forEach((hex) => {
   hex.addEventListener("click", () => {
     copyToClipBoard(hex);
   });
 });
+
 popup.addEventListener("transitionend", () => {
   const popupBox = popup.children[0];
   popup.classList.remove("active");
   popupBox.classList.remove("active");
 });
+
 adjustButton.forEach((button, index) => {
   button.addEventListener("click", () => {
     openAdjustmentPanel(index);
   });
 });
+
 closeAdjusments.forEach((button, index) => {
   button.addEventListener("click", () => {
     closeAdjusmentPanel(index);
+  });
+});
+
+lockButton.forEach((button, index) => {
+  button.addEventListener("click", () => {
+    lockUnlock(index);
   });
 });
 //Functions
@@ -54,7 +70,12 @@ function randomColors() {
     const hexText = div.children[0];
     const randomColor = generateHex();
     //Add color code to the initialColors array
-    initialColors.push(chroma(randomColor).hex());
+    if (div.classList.contains("locked")) {
+      initialColors.push(hexText.innerText);
+      return;
+    } else {
+      initialColors.push(chroma(randomColor).hex());
+    }
 
     div.style.backgroundColor = randomColor;
     hexText.innerText = randomColor;
@@ -167,7 +188,15 @@ function copyToClipBoard(hex) {
 function openAdjustmentPanel(index) {
   sliderContainers[index].classList.toggle("active");
 }
+
 function closeAdjusmentPanel(index) {
   sliderContainers[index].classList.remove("active");
 }
+
+function lockUnlock(index) {
+  colorDivs[index].classList.toggle("locked");
+  lockButton[index].children[0].classList.toggle("fa-lock-open");
+  lockButton[index].children[0].classList.toggle("fa-lock");
+}
+
 randomColors();
