@@ -181,4 +181,5 @@ input[type="range"] {
 .submit-save:hover {
   padding: 0.6rem 1.1rem;
   margin: 0.9rem;
+  cursor: pointer;
 }
