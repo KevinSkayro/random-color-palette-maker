@@ -199,29 +199,48 @@ function lockUnlock(index) {
   lockButton[index].children[0].classList.toggle("fa-lock");
 }
 
-//Local storage
+//Local storage & save palette
 const saveBtn = document.querySelector(".save");
 const submitSave = document.querySelector(".submit-save");
 const closeSave = document.querySelector(".close-save");
 const saveContainer = document.querySelector(".save-container");
 const saveInput = document.querySelector(".save-container input");
+const libraryContainer = document.querySelector(".library-container");
+const libraryBtn = document.querySelector(".library");
+const closeLibraryBtn = document.querySelector(".close-library");
 
 //local storage event listeners
 
 saveBtn.addEventListener("click", openPalette);
 closeSave.addEventListener("click", closePalette);
+libraryBtn.addEventListener("click", openLibrary);
+closeLibraryBtn.addEventListener("click", closeLibrary);
 submitSave.addEventListener("click", savePalette);
 
-//local storage functions
+//---local storage functions---
+
+//open|close palette & library
 
 function openPalette(e) {
   const popup = saveContainer.children[0];
   saveContainer.classList.add("active");
+  popup.classList.add("active");
 }
 
 function closePalette(e) {
   const popup = saveContainer.children[0];
   saveContainer.classList.remove("active");
+  popup.classList.remove("active");
+}
+function openLibrary(e) {
+  const popup = libraryContainer.children[0];
+  libraryContainer.classList.add("active");
+  popup.classList.add("active");
+}
+function closeLibrary(e) {
+  const popup = libraryContainer.children[0];
+  libraryContainer.classList.remove("active");
+  popup.classList.remove("active");
 }
 
 function savePalette(e) {
@@ -262,6 +281,12 @@ function savePalette(e) {
   paletteBtn.classList.add("pick-palette-btn");
   paletteBtn.classList.add(paletteObj.nr);
   palette.innerText = "Select";
+
+  //Append to library
+  palette.appendChild(title);
+  palette.appendChild(preview);
+  palette.appendChild(paletteBtn);
+  libraryContainer.children[0].appendChild(palette);
 }
 
 function saveToLocal(paletteObj) {
