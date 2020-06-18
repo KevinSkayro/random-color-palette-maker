@@ -280,13 +280,13 @@ function savePalette(e) {
   const paletteBtn = document.createElement("button");
   paletteBtn.classList.add("pick-palette-btn");
   paletteBtn.classList.add(paletteObj.nr);
-  palette.innerText = "Select";
+  paletteBtn.innerText = "Select";
 
   //Append to library
   palette.appendChild(title);
   palette.appendChild(preview);
   palette.appendChild(paletteBtn);
-  libraryContainer.children[0].appendChild(palette);
+  libraryContainer.children[0].children[0].appendChild(palette);
 }
 
 function saveToLocal(paletteObj) {
