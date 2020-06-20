@@ -194,6 +194,9 @@ input[type="range"] {
   overflow-y: scroll;
   margin-right: 25px;
 }
+.library-popup-inner::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
 .custom-palette {
   display: flex;
   align-items: center;

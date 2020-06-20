@@ -286,7 +286,7 @@ function savePalette(e) {
   palette.appendChild(title);
   palette.appendChild(preview);
   palette.appendChild(paletteBtn);
-  libraryContainer.children[0].children[0].appendChild(palette);
+  libraryContainer.children[0].children[1].appendChild(palette);
 }
 
 function saveToLocal(paletteObj) {
