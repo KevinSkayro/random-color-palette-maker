@@ -221,3 +221,36 @@ input[type="range"] {
   background-color: #242c32;
   color: #fff;
 }
+/*Mobile style*/
+@media screen and (max-width: 800px) {
+  .colors {
+    flex-direction: column;
+  }
+  .color {
+    height: 15vh;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    /* overflow: hidden; */
+  }
+  .color h2 {
+    margin-left: 10%;
+  }
+
+  .controls {
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex: 1;
+    align-items: center;
+  }
+
+  .copy-popup h4,
+  .save-popup h4,
+  .library-popup h4 {
+    font-size: 1.5rem;
+    padding: 2rem;
+  }
+}

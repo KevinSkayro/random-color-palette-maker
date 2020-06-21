@@ -57,6 +57,7 @@ lockButton.forEach((button, index) => {
     lockUnlock(index);
   });
 });
+
 //Functions
 
 function generateHex() {
@@ -232,11 +233,13 @@ function closePalette(e) {
   saveContainer.classList.remove("active");
   popup.classList.remove("active");
 }
+
 function openLibrary(e) {
   const popup = libraryContainer.children[0];
   libraryContainer.classList.add("active");
   popup.classList.add("active");
 }
+
 function closeLibrary(e) {
   const popup = libraryContainer.children[0];
   libraryContainer.classList.remove("active");
