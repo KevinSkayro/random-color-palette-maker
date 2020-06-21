@@ -253,4 +253,32 @@ input[type="range"] {
     font-size: 1.5rem;
     padding: 2rem;
   }
+  .library-popup {
+    min-width: 40%;
+    max-width: 90%;
+    max-height: 80vh;
+  }
+  .custom-palette {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 2rem;
+  }
+  .small-preview div {
+    width: 5rem;
+    flex: 1;
+  }
+  .pick-palette-btn {
+    height: 4rem;
+    border: none;
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin: 1rem;
+    background-color: #242c32;
+    color: #fff;
+  }
 }
