@@ -151,6 +151,13 @@ input[type="range"] {
   transition: all 0.5s ease-in-out;
 }
 
+.copy-container.active,
+.save-container.active,
+.library-container.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
 .copy-popup,
 .save-popup,
 .library-popup {
@@ -171,13 +178,6 @@ input[type="range"] {
 .library-popup h4 {
   font-size: 2rem;
   padding: 2rem;
-}
-
-.copy-container.active,
-.save-container.active,
-.library-container.active {
-  opacity: 1;
-  pointer-events: all;
 }
 
 .copy-popup.active,
@@ -274,11 +274,6 @@ input[type="range"] {
     align-items: center;
   }
 
-  /* .sliders {
-    max-height: 15.5vh;
-    width: 60%;
-    padding: 2rem;
-  } */
   .sliders {
     z-index: 1000;
     display: flex;
@@ -297,6 +292,7 @@ input[type="range"] {
   .sliders input {
     height: 6px;
   }
+
   .copy-popup h4,
   .save-popup h4,
   .library-popup h4 {
@@ -338,6 +334,7 @@ input[type="range"] {
   .color {
     min-height: 16.7vh;
   }
+
   .color h2,
   .controls button {
     font-size: 1.2rem;
@@ -349,19 +346,23 @@ input[type="range"] {
     justify-content: space-evenly;
     min-height: 16.5vh;
   }
+
   .panel button {
     font-size: 1.2rem;
     margin: auto 0.4rem;
     padding: 1rem 2rem;
     border-radius: 1rem;
   }
+
   .panel p {
     display: none;
     pointer-events: none;
   }
+
   body {
     overflow: hidden;
   }
+
   .copy-popup h4,
   .save-popup h4,
   .library-popup h4 {
@@ -369,15 +370,18 @@ input[type="range"] {
     padding: 2rem;
     text-align: center;
   }
+
   .save-name {
     font-size: 1rem;
     width: 80%;
   }
+
   .small-preview div {
     width: 2.5rem;
     height: 2.5rem;
     flex: 1;
   }
+
   .pick-palette-btn {
     height: 3.2rem;
     border-radius: 2rem;
@@ -385,6 +389,7 @@ input[type="range"] {
     font-size: 1rem;
     margin: 1rem;
   }
+
   .sliders {
     width: 80vw;
   }
